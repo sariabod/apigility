@@ -1,5 +1,5 @@
 <?php
-namespace Application\Entity;
+namespace MyCompany\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

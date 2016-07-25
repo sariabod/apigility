@@ -1,8 +1,4 @@
 <?php
-
-use Application;
-use Doctrine\ORM\Mapping\Entity;
-
 return array(
     'doctrine' => array(
         'connection' => array(
@@ -24,7 +20,7 @@ return array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => array(
-                    __DIR__ . '/../../module/Application/src/Application/Entity'  
+                    __DIR__ . '/../../module/MyCompany/src/MyCompany/Entity'  
                 ),
             ),
      
@@ -33,7 +29,7 @@ return array(
             'orm_default' => array(
                 'drivers' => array(
                     // register `my_annotation_driver` for any entity under namespace `My\Namespace`
-                    'Application' => 'my_annotation_driver'
+                    'MyCompany' => 'my_annotation_driver'
                 )
             )
         )
