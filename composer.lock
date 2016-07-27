@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "79606a9452d54453b6cd219a88fd4980",
-    "content-hash": "fcdbc1d8bc73ba6d124488bc15af7ef0",
+    "hash": "4970e9ce9dca63eff9a628834a3739c0",
+    "content-hash": "396f6db32f2bf27f7c3aee1e525ea7a6",
     "packages": [
         {
             "name": "api-skeletons/zf-oauth2-doctrine",
@@ -579,16 +579,16 @@
         },
         {
             "name": "doctrine/doctrine-orm-module",
-            "version": "0.11.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineORMModule.git",
-                "reference": "9557d828152d87177cb35c68bbc93b7d7e51f6e8"
+                "reference": "6332c3bd5cc9b8907d5e78776a95c9a2236b9e15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineORMModule/zipball/9557d828152d87177cb35c68bbc93b7d7e51f6e8",
-                "reference": "9557d828152d87177cb35c68bbc93b7d7e51f6e8",
+                "url": "https://api.github.com/repos/doctrine/DoctrineORMModule/zipball/6332c3bd5cc9b8907d5e78776a95c9a2236b9e15",
+                "reference": "6332c3bd5cc9b8907d5e78776a95c9a2236b9e15",
                 "shasum": ""
             },
             "require": {
@@ -661,7 +661,7 @@
                 "orm",
                 "zf2"
             ],
-            "time": "2016-07-03 15:07:24"
+            "time": "2016-07-14 07:57:58"
         },
         {
             "name": "doctrine/inflector",
@@ -1291,16 +1291,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "900370c81280cc0d942ffbc5912d80464eaee7e9"
+                "reference": "5f3f7e736d6319d5f1fc402aff8b026da26709a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/900370c81280cc0d942ffbc5912d80464eaee7e9",
-                "reference": "900370c81280cc0d942ffbc5912d80464eaee7e9",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/5f3f7e736d6319d5f1fc402aff8b026da26709a3",
+                "reference": "5f3f7e736d6319d5f1fc402aff8b026da26709a3",
                 "shasum": ""
             },
             "require": {
@@ -1309,7 +1309,7 @@
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-token-stream": "^1.4.2",
                 "sebastian/code-unit-reverse-lookup": "~1.0",
-                "sebastian/environment": "^1.3.2",
+                "sebastian/environment": "^1.3.2 || ^2.0",
                 "sebastian/version": "~1.0|~2.0"
             },
             "require-dev": {
@@ -1350,7 +1350,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-06-03 05:03:56"
+            "time": "2016-07-26 14:39:29"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1535,16 +1535,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.4.7",
+            "version": "5.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "6c8a756c17a1a92a066c99860eb57922e8b723da"
+                "reference": "3132365e1430c091f208e120b8845d39c25f20e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6c8a756c17a1a92a066c99860eb57922e8b723da",
-                "reference": "6c8a756c17a1a92a066c99860eb57922e8b723da",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3132365e1430c091f208e120b8845d39c25f20e6",
+                "reference": "3132365e1430c091f208e120b8845d39c25f20e6",
                 "shasum": ""
             },
             "require": {
@@ -1556,7 +1556,7 @@
                 "myclabs/deep-copy": "~1.3",
                 "php": "^5.6 || ^7.0",
                 "phpspec/prophecy": "^1.3.1",
-                "phpunit/php-code-coverage": "^4.0",
+                "phpunit/php-code-coverage": "^4.0.1",
                 "phpunit/php-file-iterator": "~1.4",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": "^1.0.6",
@@ -1609,7 +1609,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-07-21 06:55:27"
+            "time": "2016-07-26 14:48:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1769,7 +1769,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/RWOverdijk/AssetManager/zipball/3068ea0fe1aab593ec343b0f00f13e12e369ff8e",
                 "reference": "3068ea0fe1aab593ec343b0f00f13e12e369ff8e",
-                "shasum": "dcc5f0beb80692672b79fc30843bd596103b5555"
+                "shasum": ""
             },
             "require": {
                 "kriswallsmith/assetic": "~1.2.1",
@@ -2322,6 +2322,75 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2015-06-21 13:59:46"
+        },
+        {
+            "name": "slm/mail",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/juriansluiman/SlmMail.git",
+                "reference": "caa6d4d9a0de3ac74569800e6c09d0abde8e1726"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/juriansluiman/SlmMail/zipball/caa6d4d9a0de3ac74569800e6c09d0abde8e1726",
+                "reference": "caa6d4d9a0de3ac74569800e6c09d0abde8e1726",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-http": "~2.0",
+                "zendframework/zend-mail": "~2.0"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php-zf2": ">=1.0.1",
+                "zendframework/zendframework": "~2.0"
+            },
+            "suggest": {
+                "aws/aws-sdk-php-zf2": "If you need to use Amazon SES"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SlmMail\\": "src/",
+                    "SlmMailTest\\": "tests/"
+                },
+                "classmap": [
+                    "./"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jurian Sluiman",
+                    "email": "jurian@juriansluiman.nl",
+                    "homepage": "http://juriansluiman.nl"
+                },
+                {
+                    "name": "Michaël Gallego",
+                    "email": "mic.gallego@gmail.com",
+                    "homepage": "http://www.michaelgallego.fr"
+                }
+            ],
+            "description": "Integration of various email service providers in the Zend Framework Zend\\Mail",
+            "homepage": "https://github.com/juriansluiman/SlmMail",
+            "keywords": [
+                "elastic email",
+                "elasticemail",
+                "email",
+                "mailgun",
+                "mandrill",
+                "postage",
+                "postmark",
+                "send grid",
+                "sendgrid",
+                "transactional email",
+                "zf2"
+            ],
+            "time": "2016-01-15 14:18:17"
         },
         {
             "name": "symfony/console",
@@ -5657,7 +5726,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/zendframework/ZendXml/zipball/7b64507bc35d841c9c5802d67f6f87ef8e1a58c9",
                 "reference": "7b64507bc35d841c9c5802d67f6f87ef8e1a58c9",
-                "shasum": "58ee82e80e9ef827e47cd9c23fafdc4f194eac1b"
+                "shasum": ""
             },
             "require": {
                 "php": "^5.3.3 || ^7.0"
@@ -6043,16 +6112,16 @@
         },
         {
             "name": "zfcampus/zf-content-validation",
-            "version": "1.3.2",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zfcampus/zf-content-validation.git",
-                "reference": "7f44bbebdf1693e39ab0726d3942ee45840a7129"
+                "reference": "448a45692661e868ac8e298892d215369ceaced0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zfcampus/zf-content-validation/zipball/7f44bbebdf1693e39ab0726d3942ee45840a7129",
-                "reference": "7f44bbebdf1693e39ab0726d3942ee45840a7129",
+                "url": "https://api.github.com/repos/zfcampus/zf-content-validation/zipball/448a45692661e868ac8e298892d215369ceaced0",
+                "reference": "448a45692661e868ac8e298892d215369ceaced0",
                 "shasum": ""
             },
             "require": {
@@ -6100,7 +6169,7 @@
                 "zend",
                 "zf2"
             ],
-            "time": "2016-07-21 13:06:58"
+            "time": "2016-07-26 21:15:44"
         },
         {
             "name": "zfcampus/zf-development-mode",
@@ -6235,16 +6304,16 @@
         },
         {
             "name": "zfcampus/zf-mvc-auth",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zfcampus/zf-mvc-auth.git",
-                "reference": "ea6c4c7e1bc93e2a306b12bddc6a030323de048a"
+                "reference": "95de6b929d0b94b1886aff2a090387a37db7e40e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zfcampus/zf-mvc-auth/zipball/ea6c4c7e1bc93e2a306b12bddc6a030323de048a",
-                "reference": "ea6c4c7e1bc93e2a306b12bddc6a030323de048a",
+                "url": "https://api.github.com/repos/zfcampus/zf-mvc-auth/zipball/95de6b929d0b94b1886aff2a090387a37db7e40e",
+                "reference": "95de6b929d0b94b1886aff2a090387a37db7e40e",
                 "shasum": ""
             },
             "require": {
@@ -6263,7 +6332,7 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.8 || ^5.0",
-                "squizlabs/php_codesniffer": "^2.3.1",
+                "squizlabs/php_codesniffer": "^2.6.2",
                 "zendframework/zend-session": "^2.7.3"
             },
             "type": "library",
@@ -6291,7 +6360,7 @@
                 "zend",
                 "zf2"
             ],
-            "time": "2016-07-11 18:22:56"
+            "time": "2016-07-25 15:28:36"
         },
         {
             "name": "zfcampus/zf-oauth2",
@@ -6827,7 +6896,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/zendtech/zend-studio-development-mode/zipball/d85f36bcb36156d0ab9a3ff02a6e908b26b59bf9",
                 "reference": "d85f36bcb36156d0ab9a3ff02a6e908b26b59bf9",
-                "shasum": "2050aa38c25a35cd6e1ba1d811f6b26ce19b4d2d"
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.23",
@@ -7154,7 +7223,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/zfcampus/zf-apigility-admin-ui/zipball/fa6670bd711fadd32252d97a328967279d94979e",
                 "reference": "fa6670bd711fadd32252d97a328967279d94979e",
-                "shasum": "c424fb682d3efa8f25ed3263225273132bafd445"
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.5",
@@ -7308,7 +7377,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/zf-fr/zfr-cors/zipball/37ddd308ae18536c2e9ba37d1be3338e1bf8cf6b",
                 "reference": "37ddd308ae18536c2e9ba37d1be3338e1bf8cf6b",
-                "shasum": "d9d37d958fc81d80fd1de800da81e7f8de1ec431"
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
@@ -7365,7 +7434,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5"
+        "php": "^5.5 || ^7.0"
     },
     "platform-dev": []
 }

@@ -7,7 +7,7 @@ interface UserServiceInterface
     
     public function forgotPassword($emailAddress);
     
-    public function resetPassword($emailAddress,$resetToken);
+    public function resetPassword($emailAddress,$resetToken, $newPassword);
     
     public function fetchUser($email);
 }

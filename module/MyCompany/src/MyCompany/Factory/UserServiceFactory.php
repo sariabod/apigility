@@ -5,6 +5,8 @@ use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use MyCompany\Service\UserService;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
+use Zend\View\Renderer\PhpRenderer;
+use Zend\View\Resolver\TemplateMapResolver;
 
 class UserServiceFactory implements FactoryInterface
 {
@@ -15,7 +17,15 @@ class UserServiceFactory implements FactoryInterface
             $serviceLocator = $serviceLocator->getServiceLocator();
         }
         $em = $serviceLocator->get('doctrine.entitymanager.orm_default');
-        $service = new UserService($em);
+        $mailImpl = $serviceLocator->get('SlmMail\Mail\Transport\MailgunTransport');
+        
+        $mailViewRenderer = new PhpRenderer();
+        $resolver = new TemplateMapResolver();
+        
+        $resolver->setMap($serviceLocator->get('Config')['view_manager']['template_map']);
+        $mailViewRenderer->setResolver($resolver);
+        
+        $service = new UserService($em, $mailImpl, $mailViewRenderer);
         return $service;
         
     }

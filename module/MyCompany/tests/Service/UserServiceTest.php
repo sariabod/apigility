@@ -41,7 +41,7 @@ class UserServiceTest extends PHPUnit_Framework_TestCase
         $qb = $orm->createQueryBuilder()->select('u');
         $qb->from(User::class, 'u')->andWhere($qb->expr()
             ->like('u.email', ':email'));
-        $qb->setParameter('email', '%unit_test%');
+        $qb->setParameter('email', '%sariabod%');
         $iterableResults = $qb->getQuery()->iterate();
         foreach ($iterableResults as $uAsArr) {
             $orm->remove($uAsArr[0]);
@@ -91,10 +91,9 @@ class UserServiceTest extends PHPUnit_Framework_TestCase
         //$this->markTestIncomplete("registerUser test not implemented");
         
         //$this->userService->registerUser(/* parameters */);
-        $emailAddress = "test+unit_test@example.com";
+        $emailAddress = "sariabod@czekmaet.com";
         $password = "abc123";
         $userObj = $this->userService->registerUser($emailAddress, $password);
-        
         $this->assertInstanceOf(User::class, $userObj);
     }
     
@@ -103,8 +102,8 @@ class UserServiceTest extends PHPUnit_Framework_TestCase
      */
     public function testRegisterUserEmailAlreadyExistsException()
     {
- 
-        $emailAddress = "test+unit_test@example.com";
+        
+        $emailAddress = "sariabod@czekmaet.com";
         $password = "abc123";
         $userObj = $this->userService->registerUser($emailAddress, $password);
         $this->assertInstanceOf(User::class, $userObj);
@@ -121,10 +120,33 @@ class UserServiceTest extends PHPUnit_Framework_TestCase
     public function testForgotPassword()
     {
         // TODO Auto-generated UserServiceTest->testForgotPassword()
-        $this->markTestIncomplete("forgotPassword test not implemented");
+        //$this->markTestIncomplete("forgotPassword test not implemented");
+        $emailAddress = "sariabod@czekmaet.com";
+        $password = "abc123";
+        $userObj = $this->userService->registerUser($emailAddress, $password);
+        $this->assertInstanceOf(User::class, $userObj);
         
-        $this->userService->forgotPassword(/* parameters */);
+        $response = $this->userService->forgotPassword($emailAddress);
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey('isMailSent', $response);
+        $this->assertTrue($response['isMailSent']);
     }
+    
+    
+    /**
+     * Tests UserService->forgotPassword() user doesnt exist
+     */
+    public function testForgotPasswordNoUser()
+    {
+        // TODO Auto-generated UserServiceTest->testForgotPassword()
+        $this->markTestIncomplete("forgotPasswordNoUser");
+      
+        //$this->userService->forgotPassword('email@none.com');
+        //$this->setExpectedException(\RuntimeException::class,UserService::USER_NOT_FOUND_MESSAGE,UserService::USER_NOT_FOUND_CODE);
+
+    }
+    
+    
 
     /**
      * Tests UserService->resetPassword()
@@ -132,9 +154,19 @@ class UserServiceTest extends PHPUnit_Framework_TestCase
     public function testResetPassword()
     {
         // TODO Auto-generated UserServiceTest->testResetPassword()
-        $this->markTestIncomplete("resetPassword test not implemented");
+        //$this->markTestIncomplete("resetPassword test not implemented");
         
-        $this->userService->resetPassword(/* parameters */);
+        $emailAddress = "sariabod@czekmaet.com";
+        $password = "abc123";
+        $userObj = $this->userService->registerUser($emailAddress, $password);
+        $this->assertInstanceOf(User::class, $userObj);
+        
+        $emailAddress = "sariabod@czekmaet.com";
+        $newPassword = 'def456';
+        $resetToken = hash('sha256', $userObj->getId() . $userObj->getEmail() . $userObj->getPassword() . $userObj->getCreatedAt()->getTimestamp());
+        
+        $userResetObj = $this->userService->resetPassword($emailAddress, $resetToken, $newPassword);
+        $this->assertInstanceOf(User::class, $userResetObj);
     }
 
     /**
@@ -143,9 +175,14 @@ class UserServiceTest extends PHPUnit_Framework_TestCase
     public function testFetchUser()
     {
         // TODO Auto-generated UserServiceTest->testFetchUser()
-        $this->markTestIncomplete("fetchUser test not implemented");
-        
-        $this->userService->fetchUser(/* parameters */);
+        //$this->markTestIncomplete("fetchUser test not implemented");
+        $emailAddress = "sariabod@czekmaet.com";
+        $password = "abc123";
+        $userObj = $this->userService->registerUser($emailAddress, $password);
+        $this->assertInstanceOf(User::class, $userObj);
+            
+        $expectedOutput = $this->userService->fetchUser($emailAddress);
+        $this->assertInstanceOf(User::class, $expectedOutput);
     }
 }
 
