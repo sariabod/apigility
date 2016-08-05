@@ -2,12 +2,13 @@
 namespace MyCompany\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ZF\OAuth2\Doctrine\Entity\UserInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
  */
-class User
+class User implements UserInterface
 {
 
     /**

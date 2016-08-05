@@ -11,7 +11,8 @@ return array(
         'ZF\\Apigility',
         'ZF\\Apigility\\Provider',
         'ZF\\Apigility\\Documentation',
-        'AssetManager',
+	//'ZF\\AssetManager',
+        //'AssetManager',
         'ZF\\ApiProblem',
         'ZF\\Configuration',
         'ZF\\OAuth2',
@@ -28,6 +29,7 @@ return array(
         'MyCompany',
         'SlmMail',
         'Identity',
+        'test',
     ),
     'module_listener_options' => array(
         'module_paths' => array(

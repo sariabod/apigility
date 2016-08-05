@@ -3,6 +3,8 @@
 use MyCompany\Bootstrap;
 use MyCompany\Service\UserService;
 use MyCompany\Entity\User;
+use MyCompany\RBAC\ServiceRBAC;
+
 require_once (__DIR__ . '/../bootstrap.php');
 
 /**
@@ -184,5 +186,72 @@ class UserServiceTest extends PHPUnit_Framework_TestCase
         $expectedOutput = $this->userService->fetchUser($emailAddress);
         $this->assertInstanceOf(User::class, $expectedOutput);
     }
+    
+    public function testIsMethodAllowed()
+    {
+        $this->assertFalse($this->userService->isMethodAllowed(UserService::class . "::changeEmailAddress"));
+    
+        $userObj = new User();
+        $userObj->setRoles(array());
+    
+        $this->userService->setAuthenticatedIdentity($userObj);
+    
+        $this->assertFalse($this->userService->isMethodAllowed(UserService::class . "::changeEmailAddress"));
+    
+        $userObj = new User();
+        $userObj->setRoles(array(
+            ServiceRBAC::ROLE_USER
+        ));
+    
+        $this->userService->setAuthenticatedIdentity($userObj);
+    
+        $this->assertTrue($this->userService->isMethodAllowed(UserService::class . "::changeEmailAddress"));
+    }
+    
+    /*
+    public function testChangeEmailAddress()
+    {
+        // TODO Auto-generated UserServiceTest->testRegisterUser()
+        $emailAddress = "you@example.com";
+        $password = "abc123";
+    
+        $userObj = $this->userService->registerUser($emailAddress, $password);
+    
+        $this->assertInstanceOf(User::class, $userObj);
+    
+        $newEmailAddress = "jack.peterson+newEmailunit_test@gmail.com";
+    
+        $this->userService->setAuthenticatedIdentity($userObj);
+    
+        $response = $this->userService->changeEmailAddress($userObj->getEmail(), $newEmailAddress);
+    
+        $this->assertInstanceOf(User::class, $response);
+    
+        $this->assertEquals($newEmailAddress, $response->getEmail());
+    }
+    
+    public function testChangeEmailAddressByAnotherRegularUser()
+    {
+        // TODO Auto-generated UserServiceTest->testRegisterUser()
+        $emailAddress = "you@example.com";
+        $password = "abc123";
+    
+        $userObj = $this->userService->registerUser($emailAddress, $password);
+    
+        $this->assertInstanceOf(User::class, $userObj);
+    
+        $newEmailAddress = "jack.peterson+newEmailunit_test@gmail.com";
+    
+        $this->userService->setAuthenticatedIdentity($userObj);
+    
+        $emailAddress2 = "jack.peterson2+unit_test@gmail.com";
+        $userObj2 = $this->userService->registerUser($emailAddress2, $password);
+        $this->assertInstanceOf(User::class, $userObj2);
+    
+        $this->setExpectedException(\RuntimeException::class, UserService::PERMISSION_DENIED_MESSAGE, UserService::PERMISSION_DENIED_CODE);
+    
+        $this->userService->changeEmailAddress($userObj2->getEmail(), $newEmailAddress);
+    }
+    */
 }
 

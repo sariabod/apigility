@@ -79,6 +79,12 @@ return array(
                 'route_identifier_name' => 'user_id',
                 'is_collection' => true,
             ),
+            'MyCompany\\Entity\\User' => array(
+                'entity_identifier_name' => 'id',
+                'route_name' => 'identity.rest.user',
+                'route_identifier_name' => 'user_id',
+                'hydrator' => 'DoctrineModule\\Stdlib\\Hydrator\\DoctrineObject',
+            ),
         ),
     ),
     'zf-content-validation' => array(

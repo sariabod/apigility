@@ -3,12 +3,11 @@ namespace MyCompany;
 
 use Zend\Uri\UriFactory;
 
+
 class Module
 {
     public function __construct() {
-        
         UriFactory::registerScheme('chrome-extension', 'Zend\Uri\Uri');
-        
     }
     
     public function getConfig()

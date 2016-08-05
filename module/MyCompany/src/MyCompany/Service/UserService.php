@@ -8,15 +8,19 @@ use Zend\Mail\Message;
 use SlmMail\Mail\Transport\HttpTransport;
 use Zend\View\Renderer\RendererInterface;
 use Zend\Crypt\Password\Bcrypt;
+use MyCompany\Authentication\iAuthAwareInterface;
+use MyCompany\RBAC\ServiceRBAC;
 
 
 
-class UserService implements UserServiceInterface
+class UserService implements UserServiceInterface, iAuthAwareInterface
 {
     
     protected $entityManager;
     protected $mailTemplateRenderer;
     protected $mailService;
+    protected $authenticatedIdentity;
+    protected $serviceRBAC;
     
     const USER_ALREADY_REGISTERED_CODE = 2;
     const USER_ALREADY_REGISTERED_MESSAGE = 'User has already registered';
@@ -29,11 +33,62 @@ class UserService implements UserServiceInterface
     const MUST_BE_LOGGED_IN_CODE = 6;
     const MUST_BE_LOGGED_IN_MESSAGE = 'You must be authenticated to perform the requested action.';
     
-    public function __construct(EntityManagerInterface $em, HttpTransport $mailService, RendererInterface $mailTemplateRenderer) {
+    public function __construct(EntityManagerInterface $em, HttpTransport $mailService, RendererInterface $mailTemplateRenderer, ServiceRBAC $serviceRbac) {
         $this->entityManager = $em;
         $this->mailService = $mailService;
         $this->mailTemplateRenderer = $mailTemplateRenderer;
+        $this->serviceRBAC = $serviceRbac;
+        
+        $this->serviceRBAC->getRBAC()
+        ->getRole(ServiceRBAC::ROLE_USER)
+        ->addPermission(__CLASS__ . '::changeEmailAddress');
     }
+    
+    /**
+     * {@inheritDoc}
+     * @see \MyCompany\Authentication\iAuthAwareInterface::setAuthenticatedIdentity()
+     */
+    public function setAuthenticatedIdentity(User $user) {
+
+            $this->authenticatedIdentity = $user;
+    }
+    
+    /**
+     * {@inheritDoc}
+     * @see \MyCompany\Authentication\iAuthAwareInterface::getAuthenticatedIdentity()
+     */
+    public function getAuthenticatedIdentity() {
+                
+        if (! $this->authenticatedIdentity instanceof User)
+            throw new \RuntimeException(self::MUST_BE_LOGGED_IN_MESSAGE, self::MUST_BE_LOGGED_IN_CODE);
+        return $this->authenticatedIdentity;
+    
+    }
+    
+    public function isMethodAllowed($func, $assertion = null)
+    {
+        try {
+            /**
+             *
+             * @var $userEntity User
+             */
+            $userEntity = $this->getAuthenticatedIdentity();
+    
+            if (! $userEntity instanceof User)
+                return false;
+    
+                foreach ($userEntity->getRoles() as $role) {
+    
+                    if ($this->serviceRBAC->getRBAC()->isGranted($role, $func, $assertion)) {
+                        return true;
+                    }
+                }
+                return false;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+    
     
     protected function _getActivationCode(User $userObj)
     {
@@ -73,7 +128,7 @@ class UserService implements UserServiceInterface
      /**
       * SEND EMAIL
       */
-     
+     /*
      $message = new Message();
      $message->setSubject('Welcome to MyCompany! Please activate your account.');
      
@@ -94,7 +149,7 @@ class UserService implements UserServiceInterface
      $message->setTo($userObj->getEmail());
      $message->setBody($body);
      $this->mailService->send($message);
-     
+     */
      
      
      return $userObj;
@@ -186,5 +241,7 @@ class UserService implements UserServiceInterface
      
      return $userObj;
  }
+
+
 
 }

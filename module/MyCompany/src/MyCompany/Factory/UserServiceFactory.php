@@ -7,6 +7,7 @@ use MyCompany\Service\UserService;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\View\Renderer\PhpRenderer;
 use Zend\View\Resolver\TemplateMapResolver;
+use MyCompany\RBAC\ServiceRBAC;
 
 class UserServiceFactory implements FactoryInterface
 {
@@ -25,7 +26,8 @@ class UserServiceFactory implements FactoryInterface
         $resolver->setMap($serviceLocator->get('Config')['view_manager']['template_map']);
         $mailViewRenderer->setResolver($resolver);
         
-        $service = new UserService($em, $mailImpl, $mailViewRenderer);
+        $serviceRBAC = new ServiceRBAC();
+        $service = new UserService($em, $mailImpl, $mailViewRenderer, $serviceRBAC);
         return $service;
         
     }

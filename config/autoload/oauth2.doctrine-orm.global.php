@@ -76,7 +76,7 @@ return array(
                         ),
                         'username' => array(
                             'type' => 'field',
-                            'name' => 'username',
+                            'name' => 'email',
                             'datatype' => 'string',
                         ),
                         'password' => array(
